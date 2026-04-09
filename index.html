@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edward Murray IV - ML Engineer Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1a1a2e;
+            background: #f0f0f5;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .resume {
+            max-width: 8.5in;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        @media print {
+            body { background: white; }
+            .resume { box-shadow: none; margin: 0; max-width: 100%; }
+            .no-print { display: none; }
+            @page { margin: 0.4in; size: letter; }
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1a365d 100%);
+            color: white;
+            padding: 36px 48px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 200px; height: 100%;
+            background: linear-gradient(135deg, transparent 40%, rgba(59,130,246,0.15) 100%);
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+        }
+
+        .header .title {
+            font-size: 15px;
+            font-weight: 400;
+            color: #93c5fd;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+
+        .contact-row {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            font-size: 12.5px;
+            color: #cbd5e1;
+        }
+
+        .contact-row span { display: flex; align-items: center; gap: 6px; }
+
+        .clearance-badge {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 4px 14px;
+            background: rgba(34,197,94,0.2);
+            border: 1px solid rgba(34,197,94,0.5);
+            border-radius: 20px;
+            color: #86efac;
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+        }
+
+        /* Body */
+        .body { padding: 32px 48px 40px; }
+
+        .section { margin-bottom: 26px; }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #1e3a5f;
+            border-bottom: 2px solid #1e3a5f;
+            padding-bottom: 6px;
+            margin-bottom: 14px;
+        }
+
+        /* Summary */
+        .summary {
+            font-size: 13.5px;
+            line-height: 1.65;
+            color: #334155;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 32px;
+        }
+
+        .skill-category h4 {
+            font-size: 12px;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-category p {
+            font-size: 12.5px;
+            color: #475569;
+            line-height: 1.55;
+        }
+
+        /* Projects */
+        .project {
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 3px solid #dbeafe;
+        }
+
+        .project:hover { border-left-color: #3b82f6; }
+
+        .project h4 {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 1px;
+        }
+
+        .project .tech {
+            font-size: 11.5px;
+            color: #6366f1;
+            font-style: italic;
+            margin-bottom: 4px;
+        }
+
+        .project ul {
+            padding-left: 16px;
+            font-size: 12.5px;
+            color: #475569;
+        }
+
+        .project li { margin-bottom: 2px; }
+
+        /* Experience */
+        .job {
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 2px;
+        }
+
+        .job h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .job .dates {
+            font-size: 12px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .job .company {
+            font-size: 12.5px;
+            color: #6366f1;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .job ul {
+            padding-left: 16px;
+            font-size: 12.5px;
+            color: #475569;
+        }
+
+        .job li { margin-bottom: 3px; }
+
+        .job li strong { color: #1e293b; }
+
+        /* Education */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 32px;
+            font-size: 12.5px;
+            color: #475569;
+        }
+
+        .edu-item { display: flex; align-items: center; gap: 8px; }
+        .edu-item .dot {
+            width: 6px; height: 6px;
+            background: #1e3a5f;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Print button */
+        .print-btn {
+            display: block;
+            margin: 16px auto;
+            padding: 10px 32px;
+            background: #1e3a5f;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .print-btn:hover { background: #2d4a73; }
+    </style>
+</head>
+<body>
+
+<div class="resume">
+    <!-- HEADER -->
+    <div class="header">
+        <h1>EDWARD JOSEPH MURRAY IV</h1>
+        <div class="title">Machine Learning Engineer &nbsp;|&nbsp; AI Application Developer &nbsp;|&nbsp; Data Scientist</div>
+        <div class="contact-row">
+            <span>Fredericksburg, VA</span>
+            <span>(703) 915-3237</span>
+            <span>edward.murrayiv@gmail.com</span>
+            <span>github.com/smalls275</span>
+        </div>
+        <div class="clearance-badge">ACTIVE TS/SCI &mdash; POLYGRAPH ELIGIBLE</div>
+    </div>
+
+    <!-- BODY -->
+    <div class="body">
+
+        <!-- SUMMARY -->
+        <div class="section">
+            <div class="section-title">Professional Summary</div>
+            <p class="summary">
+                Machine learning engineer and full-stack application developer with 15+ years building data-driven systems for the U.S. Intelligence Community. Currently serving as Data Scientist supporting NGA, designing algorithms, predictive models, and automated data pipelines in Python to extract actionable intelligence from terabytes of structured and unstructured data. Self-taught developer with a portfolio of 10+ AI-powered applications spanning autonomous trading systems, NLP content generation, real-time market analytics, and interactive data dashboards. Army Ranger veteran with combat leadership across 5 deployments.
+            </p>
+        </div>
+
+        <!-- SKILLS -->
+        <div class="section">
+            <div class="section-title">Technical Skills</div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Machine Learning & AI</h4>
+                    <p>Python, Algorithm Design, Predictive Modeling, Classification & Regression, Statistical Analysis, NLP / LLM Integration (Hugging Face, Mistral-7B), Autonomous Decision Systems, Data Mining, Clustering, EDA</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Application Development</h4>
+                    <p>JavaScript (ES6+), Node.js, Express.js, React 19, Vite, HTML5/CSS3, TailwindCSS, REST API Design, Canvas Game Engines, Web Audio API, Mobile-First Design</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Data Engineering & Visualization</h4>
+                    <p>Pandas, NumPy, openpyxl, ETL Pipelines, Tableau, ArcGIS Pro, Chart.js, Custom Dashboards, Large-Scale Data (100s TB), CSV/JSON/Excel Processing</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Platforms & Tools</h4>
+                    <p>Git/GitLab/GitHub, Vercel, Netlify, npm, Node-Cron, Yahoo Finance API, CoinGecko API, Hugging Face API, Spring Boot, VBA, PowerShell, JIRA, Cheerio</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <div class="section">
+            <div class="section-title">Portfolio Projects</div>
+
+            <div class="project">
+                <h4>AI Trading Bot &mdash; Autonomous Market Decision Engine</h4>
+                <div class="tech">Node.js, Express, Yahoo Finance API, CoinGecko API, Custom TradingAI Class</div>
+                <ul>
+                    <li>Engineered <strong>fully autonomous AI trading system</strong> analyzing 5 cryptocurrencies in real-time using RSI, momentum, volatility, and trend detection algorithms</li>
+                    <li>Built multi-indicator <strong>confidence scoring engine</strong> with configurable risk levels and Kelly Criterion-inspired position sizing</li>
+                    <li>Automated pipeline: data ingestion (2 min) &rarr; indicator calc &rarr; scoring &rarr; execution with <strong>full explainability logging</strong></li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h4>ContentForge AI &mdash; NLP Content Generation SaaS</h4>
+                <div class="tech">Node.js, Express, Hugging Face Inference API (Mistral-7B), REST API, Freemium Architecture</div>
+                <ul>
+                    <li>Built full-stack <strong>AI content platform</strong> integrating Mistral-7B LLM for multi-platform content creation (LinkedIn, Twitter, newsletters)</li>
+                    <li>Designed <strong>SaaS architecture</strong> with rate limiting, analytics dashboard, user tracking, and prompt engineering pipeline</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h4>Market Monitor &mdash; Real-Time Financial Analytics</h4>
+                <div class="tech">Node.js, Express, CoinGecko API, Alpha Vantage API</div>
+                <ul>
+                    <li>Developed <strong>real-time crypto price tracker</strong> supporting 50+ assets with custom alerting, price history charts, and webhook notifications</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h4>Carbon Analytics Dashboard &bull; FitPro React App &bull; HTML5 Game Engine &bull; Garden Journal &bull; Budget Tools</h4>
+                <div class="tech">Python/Pandas/NumPy, React 19/Vite/TailwindCSS, HTML5 Canvas, Spring Boot (Java), VBA</div>
+                <ul>
+                    <li>Additional projects demonstrating breadth: <strong>Python data analytics</strong>, <strong>React SPAs</strong>, custom <strong>physics/game engine</strong> (5 levels, particle systems, procedural audio), <strong>Java web apps</strong>, and <strong>VBA automation</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div class="section">
+            <div class="section-title">Professional Experience</div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h4>Data Scientist</h4>
+                    <span class="dates">Sep 2024 &ndash; Present</span>
+                </div>
+                <div class="company">Allen Integrated Solutions &mdash; NGA Customer Support, Stafford, VA</div>
+                <ul>
+                    <li>Develop and deploy <strong>Python algorithms</strong> and automated data pipelines supporting NGA intelligence missions across multiple classification domains</li>
+                    <li>Build interactive <strong>dashboards and sense makers</strong> for exploratory comparative analysis of large-scale geospatial and intelligence datasets</li>
+                    <li>Conduct <strong>predictive modeling and statistical analysis</strong> (classification, regression) on structured/unstructured data</li>
+                    <li>Develop <strong>web-based applications</strong> (HTML/JS) to improve data accessibility for intelligence consumers</li>
+                    <li>Manage code repositories and workflows using <strong>GitLab</strong>; leverage JEMA, Safehouse, Safebox platforms</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h4>Senior Intelligence Adjudicator</h4>
+                    <span class="dates">Aug 2022 &ndash; Sep 2024</span>
+                </div>
+                <div class="company">Allen Integrated Solutions &mdash; NGA Customer Support, Stafford, VA</div>
+                <ul>
+                    <li><strong>Built every internal tool</strong> used by the team for manual review, trend tracking, and automated reporting &mdash; self-taught, from scratch</li>
+                    <li>Created <strong>custom JIRA dashboards</strong> with automation for real-time production metrics and program management</li>
+                    <li><strong>Cut review time from hours to minutes</strong> while increasing thoroughness; conducted highest review volume in 2023</li>
+                    <li>Selected by leadership to <strong>partner with developers</strong> on future production dashboard architecture</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h4>Geospatial Analyst / Technical Lead</h4>
+                    <span class="dates">Apr 2017 &ndash; Aug 2022</span>
+                </div>
+                <div class="company">Leidos, Alexandria, VA &mdash; Army Geospatial Center (AGC)</div>
+                <ul>
+                    <li><strong>Technical Lead for 5 combat deployments</strong> (Iraq, Djibouti, Afghanistan) managing real-time intelligence operations with 8 analysts</li>
+                    <li>Automated reporting systems and modernized databasing &mdash; <strong>hundreds of terabytes</strong> of data made instantly discoverable</li>
+                    <li>Conducted multi-source <strong>data mining and fusion</strong> to produce actionable geospatial intelligence products</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h4>Mission Integration Engineer</h4>
+                    <span class="dates">Sep 2015 &ndash; Apr 2017</span>
+                </div>
+                <div class="company">NJVC, Chantilly, VA</div>
+                <ul>
+                    <li>Briefed <strong>senior NGA leadership</strong> on big data and virtual infrastructure capabilities with live data visualization demos</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h4>Imagery Analyst / Task Lead</h4>
+                    <span class="dates">Oct 2011 &ndash; Sep 2013</span>
+                </div>
+                <div class="company">BAE Systems, Reston, VA</div>
+                <ul>
+                    <li>Led 10 analysts for NGA; delivered briefs resulting in <strong>policy changes</strong> and <strong>dozens of actioned targets</strong></li>
+                    <li><strong>Taught analysis techniques at NGA College</strong> to prepare government employees for deployment</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h4>GEOINT Team Leader</h4>
+                    <span class="dates">Jan 2008 &ndash; Jan 2011</span>
+                </div>
+                <div class="company">75th Ranger Regiment, U.S. Army, Ft. Benning, GA</div>
+                <ul>
+                    <li>Led 6-person GEOINT team for special operations; target products contributed to <strong>500+ captures/neutralizations</strong></li>
+                    <li>Authored IPB for Sadr City credited as <strong>critical to zero Task Force losses</strong>; 100% Ranger School graduation rate for trainees</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="section">
+            <div class="section-title">Education & Certifications</div>
+            <div class="edu-grid">
+                <div class="edu-item"><div class="dot"></div><span><strong>Ranger School</strong> &mdash; U.S. Army (elite leadership, &lt;50% pass rate)</span></div>
+                <div class="edu-item"><div class="dot"></div><span><strong>Ranger Indoctrination Program</strong> &mdash; 75th Ranger Regiment</span></div>
+                <div class="edu-item"><div class="dot"></div><span><strong>Certified Satellite Imagery Intelligence Analyst</strong> &mdash; U.S. Army</span></div>
+                <div class="edu-item"><div class="dot"></div><span><strong>Self-Directed Technical Education</strong> &mdash; Python, JS, React, ML, LLMs (2022&ndash;Present)</span></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<button class="print-btn no-print" onclick="window.print()">Print / Save as PDF</button>
+
+</body>
+</html>
