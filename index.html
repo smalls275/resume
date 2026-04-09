@@ -238,6 +238,12 @@
             cursor: pointer;
         }
         .print-btn:hover { background: #2d4a73; }
+
+        a { color: inherit; text-decoration: none; }
+        a.link { color: #3b82f6; text-decoration: underline; text-decoration-color: rgba(59,130,246,0.4); }
+        a.link:hover { text-decoration-color: #3b82f6; }
+        .header a { color: #93c5fd; }
+        .header a:hover { color: #bfdbfe; text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -251,7 +257,8 @@
             <span>Fredericksburg, VA</span>
             <span>(703) 915-3237</span>
             <span>edward.murrayiv@gmail.com</span>
-            <span>github.com/smalls275</span>
+            <span><a href="https://github.com/smalls275" target="_blank">github.com/smalls275</a></span>
+            <span><a href="https://smalls275.github.io/showcase/" target="_blank">Live ML Portfolio &rarr;</a></span>
         </div>
         <div class="clearance-badge">ACTIVE TS/SCI &mdash; POLYGRAPH ELIGIBLE</div>
     </div>
@@ -295,7 +302,17 @@
             <div class="section-title">Portfolio Projects</div>
 
             <div class="project">
-                <h4>AI Trading Bot &mdash; Autonomous Market Decision Engine</h4>
+                <h4>ML From Scratch &mdash; Interactive Machine Learning Visualizations &nbsp;<a class="link" href="https://smalls275.github.io/showcase/" target="_blank" style="font-size:11.5px;font-weight:500;">Live Demo</a> &nbsp;<a class="link" href="https://github.com/smalls275/showcase" target="_blank" style="font-size:11.5px;font-weight:500;">Source</a></h4>
+                <div class="tech">React 19, Vite, TailwindCSS v4, HTML5 Canvas, Pure JavaScript (zero ML libraries)</div>
+                <ul>
+                    <li>Implemented <strong>4 ML algorithms entirely from scratch</strong> in pure JS: Linear Regression (gradient descent), Neural Network (backpropagation), K-Means Clustering (K-Means++), Anomaly Detection (ensemble Z-Score/IQR/Moving Avg)</li>
+                    <li>Built <strong>real-time interactive canvas visualizations</strong> &mdash; users click to create data and watch algorithms learn step-by-step with animated decision boundaries, loss curves, and Voronoi regions</li>
+                    <li>Clean architecture: ML logic fully separated from UI in testable, portable ES modules &mdash; <strong>75KB gzipped</strong></li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h4>AI Trading Bot &mdash; Autonomous Market Decision Engine &nbsp;<a class="link" href="https://github.com/smalls275/ai-trading-bot" target="_blank" style="font-size:11.5px;font-weight:500;">Source</a></h4>
                 <div class="tech">Node.js, Express, Yahoo Finance API, CoinGecko API, Custom TradingAI Class</div>
                 <ul>
                     <li>Engineered <strong>fully autonomous AI trading system</strong> analyzing 5 cryptocurrencies in real-time using RSI, momentum, volatility, and trend detection algorithms</li>
@@ -305,7 +322,7 @@
             </div>
 
             <div class="project">
-                <h4>ContentForge AI &mdash; NLP Content Generation SaaS</h4>
+                <h4>ContentForge AI &mdash; NLP Content Generation SaaS &nbsp;<a class="link" href="https://github.com/smalls275/contentforge-ai" target="_blank" style="font-size:11.5px;font-weight:500;">Source</a></h4>
                 <div class="tech">Node.js, Express, Hugging Face Inference API (Mistral-7B), REST API, Freemium Architecture</div>
                 <ul>
                     <li>Built full-stack <strong>AI content platform</strong> integrating Mistral-7B LLM for multi-platform content creation (LinkedIn, Twitter, newsletters)</li>
@@ -314,7 +331,7 @@
             </div>
 
             <div class="project">
-                <h4>Market Monitor &mdash; Real-Time Financial Analytics</h4>
+                <h4>Market Monitor &mdash; Real-Time Financial Analytics &nbsp;<a class="link" href="https://github.com/smalls275/market-monitor" target="_blank" style="font-size:11.5px;font-weight:500;">Source</a></h4>
                 <div class="tech">Node.js, Express, CoinGecko API, Alpha Vantage API</div>
                 <ul>
                     <li>Developed <strong>real-time crypto price tracker</strong> supporting 50+ assets with custom alerting, price history charts, and webhook notifications</li>
